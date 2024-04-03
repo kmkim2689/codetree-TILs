@@ -5,7 +5,7 @@ fun main() {
     val n: Int = sc.nextInt()
     val numbers: List<Int> = List(n) { sc.nextInt() }
     var curr = 0
-    var max = 0
+    var max = 1
     numbers.forEachIndexed { index, number ->
         if (index == 0 || numbers[index - 1] == numbers[index]) {
             curr++
