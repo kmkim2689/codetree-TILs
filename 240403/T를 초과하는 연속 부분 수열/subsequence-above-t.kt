@@ -1,8 +1,13 @@
-import java.util.Scanner
+import java.util.*
+import java.io.*
 
 fun main() {
     val sc = Scanner(System.`in`)
     val input = sc.nextLine().split(" ")
+    if (input.size < 2) {
+        println("Invalid input")
+        return
+    }
     val n = input[0].toInt()
     val t = input[1].toInt()
     val numbers = sc.nextLine().split(" ").map { it.toInt() }
