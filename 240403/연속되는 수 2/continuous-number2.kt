@@ -14,5 +14,6 @@ fun main() {
             curr = 1
         }
     }
+    if (curr > max) max = curr
     println(max)
 }
