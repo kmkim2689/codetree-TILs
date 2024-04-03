@@ -7,16 +7,18 @@ fun main() {
     
     val n = input[0].toInt()
     val t = input[1].toInt()
-    val numbers = sc.nextLine().split(" ").map { it.toInt() }
+    val numbers = sc.nextLine().split(" ")
 
     if (numbers.size == 0){
         println(0)
         return
     }
 
+    val numberList = numbers.map { it.toInt() }
+
     var count = 0
     var max = 0
-    numbers.forEach {
+    numberList.forEach {
         if (it > t) {
             count++
             if (count > max) max = count
