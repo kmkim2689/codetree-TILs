@@ -7,7 +7,7 @@ fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
     val grid = List(n) {
-        br.readLine().split(" ").map { it.toInt() }
+        br.readLine().trim().split(" ").map { it.toInt() }
     }
 
     val directions = listOf(
