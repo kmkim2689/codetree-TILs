@@ -7,6 +7,7 @@ fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
     val grid = List(n) {
+        // trim을 해주어야 끝의 공백 제거 가능
         br.readLine().trim().split(" ").map { it.toInt() }
     }
 
