@@ -16,14 +16,14 @@ fun main() {
         "W" to Position(0, -1)
     )
 
-    repeat(n) loop@{
+    loop@ for (i in 1..n) {
         val (dir, dis) = br.readLine().split(" ")
-        repeat(dis.toInt()) {
-            position += directions[dir] ?: return@loop
+        for (j in 1..dis.toInt()) {
+            position += directions[dir] ?: break@loop
             time++
             if (position.r == 0 && position.c == 0) {
                 result = time
-                return@loop
+                break@loop
             }
         }
     }
