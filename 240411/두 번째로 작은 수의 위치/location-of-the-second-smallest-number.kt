@@ -5,11 +5,12 @@ fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
     val numbers = br.readLine().trim().split(" ").map { it.toInt() }
-    var minimumNum = numbers.first()
+    val sortedNumbers = numbers.sorted()
+    var minimumNum = numbers.min()
     var isSecond = false
     var secondIndex: Int = -1
-    numbers.forEachIndexed loop@ { index, number ->
-        if (number > minimumNum && isSecond == false) {
+    sortedNumbers.forEachIndexed loop@ { index, number ->
+        if (number > minimumNum!! && isSecond == false) {
             secondIndex = index + 1
             minimumNum = number
             isSecond = true
@@ -18,5 +19,9 @@ fun main() {
             return@loop
         }
     }
+    if (secondIndex != 1) {
+        secondIndex = numbers.indexOf(minimumNum) + 1
+    }
+
     println(secondIndex)
 }
