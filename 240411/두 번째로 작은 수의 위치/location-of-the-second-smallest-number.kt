@@ -12,6 +12,7 @@ fun main() {
         if (number > minimumNum && isSecond == false) {
             secondIndex = index + 1
             minimumNum = number
+            isSecond = true
         } else if (number == minimumNum && isSecond == true) {
             secondIndex = -1
             return
