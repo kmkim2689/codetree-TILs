@@ -19,7 +19,8 @@ fun main() {
             return@loop
         }
     }
-    if (secondIndex != 1) {
+
+    if (secondIndex != -1) {
         secondIndex = numbers.indexOf(minimumNum) + 1
     }
 
