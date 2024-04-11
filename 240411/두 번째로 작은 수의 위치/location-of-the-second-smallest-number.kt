@@ -23,5 +23,9 @@ fun main() {
         secondIndex = numbers.indexOf(minimumNum) + 1
     }
 
+    if (numbers.distinct().size == 1) {
+        secondIndex = -1
+    }
+
     println(secondIndex)
 }
