@@ -8,13 +8,13 @@ fun main() {
     var minimumNum = numbers.first()
     var isSecond = false
     var secondIndex: Int = -1
-    numbers.forEachIndexed { index, number ->
+    numbers.forEachIndexed loop@ { index, number ->
         if (number > minimumNum && isSecond == false) {
             secondIndex = index + 1
             isSecond = true
         } else if (number == minimumNum && isSecond == true) {
             secondIndex = -1
-            return
+            return@loop
         }
     }
     println(secondIndex)
