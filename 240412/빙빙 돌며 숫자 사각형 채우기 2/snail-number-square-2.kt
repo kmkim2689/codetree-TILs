@@ -17,7 +17,8 @@ fun main() {
     val grid: List<MutableList<Int>> = List(n) { MutableList(m) { 0 } }
     var cnt = 1
 
-    while (grid[position.r][position.c] == 0) {
+    while (position.r in rangeR && position.c in rangeC 
+        && grid[position.r][position.c] == 0) {
         grid[position.r][position.c] = cnt
         cnt++
         val newPosition = position + positions[direction]
@@ -50,11 +51,3 @@ data class Position(
         )
     }
 }
-
-/*
-남 -> 동 -> 북 -> 서(반시계방향)
-Position(1, 0),
-Position(0, 1),
-Position(-1, 0),
-Position(0, -1)
-*/
