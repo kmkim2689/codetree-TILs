@@ -8,7 +8,7 @@ fun main() {
     var maxValue = Int.MIN_VALUE
 
     for (i in 0 until numbers.size - 2) {
-        for (j in i + 1 until numbers.size) {
+        for (j in i + 2 until numbers.size) {
             val currTotal = numbers[i] + numbers[j]
             if (currTotal > maxValue) maxValue = currTotal
         }
