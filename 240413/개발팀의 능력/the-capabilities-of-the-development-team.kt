@@ -11,7 +11,8 @@ fun main() {
         for (j in 0 until items.size) {
             for (k in 0 until items.size) {
                 for (l in 0 until items.size) {
-                    if (i == j || j == k || k == l || l == i) continue
+                    // 모든 같은 인덱스 경우의 수를 커버해야함
+                    if (i == j || j == k || k == l || l == i || i == k || j == l) continue
                     val team1 = items[i] + items[j]
                     val team2 = items[k] + items[l]
                     val team3 = items.sum() - team1 - team2
