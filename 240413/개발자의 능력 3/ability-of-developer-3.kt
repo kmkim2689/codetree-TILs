@@ -10,8 +10,8 @@ fun main() {
         for (j in i + 1 until items.size - 1) {
             for (k in j + 1 until items.size) {
                 val team1 = listOf(items[i], items[j], items[k])
-                val team2 = (items - team1)
-                val diff = abs(team1.sum() - team2.sum())
+                // 리스트를 새로 만들기보다는 기존의 합에 나눈 팀의 합을 빼기만 하면 다른 팀의 합을 구할 수 있음
+                val diff = abs(team1.sum() - abs(team1.sum() - items.sum()))
                 if (minDiff > diff) minDiff = diff
             }
         }
