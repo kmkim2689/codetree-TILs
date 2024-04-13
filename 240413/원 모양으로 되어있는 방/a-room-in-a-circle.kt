@@ -10,6 +10,7 @@ fun main() {
 
     for (index in 0 until n) {
         var currDist = 0
+        // 맨 앞의 요소 제거하고 뒤에 붙이는 방식
         val first = peopleNums.first()
         peopleNums.remove(first)
         peopleNums.add(first)
