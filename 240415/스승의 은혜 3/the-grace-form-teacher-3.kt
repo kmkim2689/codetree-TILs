@@ -14,15 +14,14 @@ fun main() = with(System.out.bufferedWriter()) {
         items.add(items.first())
         items.removeAt(0)
         repeat(n) { count ->
-            val newItems = items.slice(0..count)
             var left = b
             var person = 0
-            loop@ for (i in 0 until newItems.size) {
-                if (left - newItems[i].p - newItems[i].s >= 0) {
+            loop@ for (i in 0..count) {
+                if (left - items[i].p - items[i].s >= 0) {
                     person++
-                    left -= (newItems[i].p + newItems[i].s)
+                    left -= (items[i].p + items[i].s)
                 } else {
-                    if (left - newItems[i].p / 2 - newItems[i].s >= 0) {
+                    if (left - items[i].p / 2 - items[i].s >= 0) {
                         person++
                     }
                     break@loop
