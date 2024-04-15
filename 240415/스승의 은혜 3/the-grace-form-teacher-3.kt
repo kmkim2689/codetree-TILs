@@ -32,7 +32,8 @@ fun main() = with(System.out.bufferedWriter()) {
         }
     }
 
-    println(result.max())
+    write(result.max().toString())
+    close()
 }
 
 data class Present(
