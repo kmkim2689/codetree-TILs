@@ -15,8 +15,8 @@ fun main() = with(System.out.bufferedWriter()) {
         for (j in 0 until positions.size) {
             for (k in 0 until positions.size) {
                 if (i == j || i == k || j == k) continue
-                val xItems = positions.map(Position::x)
-                val yItems = positions.map(Position::y)
+                val xItems = listOf(positions[i], positions[j], positions[k]).map(Position::x)
+                val yItems = listOf(positions[i], positions[j], positions[k]).map(Position::y)
                 if (xItems.size == xItems.distinct().size || yItems.size == yItems.distinct().size) continue
                 val curr = abs(xItems.max()!! - xItems.min()!!) * abs(yItems.max()!! - yItems.min()!!)
                 if (curr > maxValue) maxValue = curr
