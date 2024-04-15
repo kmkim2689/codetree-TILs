@@ -10,11 +10,9 @@ fun main() = with(System.out.bufferedWriter()) {
     }
     var maxValue = Int.MIN_VALUE
     var isPossible = false
-    // 완전 탐색하는 세 대상의 인덱스 범위가 같으면 안된다는 법은 없음
-    for (i in 0 until positions.size) {
-        for (j in 0 until positions.size) {
-            for (k in 0 until positions.size) {
-                if (i == j || i == k || j == k) continue
+    for (i in 0 until positions.size - 2) {
+        for (j in i + 1 until positions.size - 1) {
+            for (k in j + 1 until positions.size) {
                 val xItems = listOf(positions[i], positions[j], positions[k]).map(Position::x)
                 val yItems = listOf(positions[i], positions[j], positions[k]).map(Position::y)
                 if (xItems.size == xItems.distinct().size || yItems.size == yItems.distinct().size) continue
