@@ -7,9 +7,10 @@ fun main() = with(System.out.bufferedWriter()) {
         Position(x1, x2)
     }
     var count = 0
-    for (i in 0 until positions.size - 1) {
+    for (i in 0 until positions.size) {
         var isPossible = false
-        for (j in i + 1 until positions.size) {
+        for (j in 0 until positions.size) {
+            if (i == j) continue
             if (positions[i].x1 < positions[j].x1 && positions[i].x2 < positions[j].x2
             || positions[j].x1 < positions[i].x1 && positions[j].x2 < positions[i].x2) {
                 isPossible = true
