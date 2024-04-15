@@ -22,7 +22,7 @@ fun main() = with(System.out.bufferedWriter()) {
         if (isPossible) count++
     }
 
-    println(count)
+    if (positions.size == 1) println(1) else println(count)
 }
 
 data class Position(val x1: Int, val x2: Int)
