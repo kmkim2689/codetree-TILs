@@ -16,7 +16,11 @@ fun main() = with(System.out.bufferedWriter()) {
                 val xItems = listOf(positions[i], positions[j], positions[k]).map(Position::x)
                 val yItems = listOf(positions[i], positions[j], positions[k]).map(Position::y)
                 if (xItems.size == xItems.distinct().size || yItems.size == yItems.distinct().size) continue
-                val curr = abs(xItems.max()!! - xItems.min()!!) * abs(yItems.max()!! - yItems.min()!!)
+                // val curr = abs(xItems.max()!! - xItems.min()!!) * abs(yItems.max()!! - yItems.min()!!)
+                val curr = abs(
+                    (positions[i].x * positions[j].y + positions[j].x * positions[k].y + positions[k].x * positions[i].y) - 
+                    (positions[j].x * positions[i].y + positions[k].x * positions[j].y + positions[i].x * positions[k].y)
+                )
                 if (curr > maxValue) maxValue = curr
                 isPossible = true
             }
