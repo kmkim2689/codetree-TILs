@@ -7,7 +7,7 @@ fun main(){
 
     val arrList = ArrayList<Int>()
 
-    for (i in 1 .. 9){
+    for (i in 1 .. n){
         val cmd = s.next().toString()
 
         when(cmd){
