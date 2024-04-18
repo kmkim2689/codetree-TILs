@@ -1,51 +1,87 @@
-val br = System.`in`.bufferedReader()
-private lateinit var numbers: MutableList<Int>
+import java.util.*
 
-fun main() = with(System.out.bufferedWriter()) {
-    val n = br.readLine().trim().toInt()
-    val input = br.readLine().trim().split(" ").map(String::toInt)
-    numbers = MutableList(n + 1) { 0 }.apply {
-        for (i in 0 until n) {
-            this[i + 1] = input[i]
+fun main() {
+    val s = Scanner(System.`in`)
+    val n = s.nextInt() // 6
+    val arr = IntArray(n + 1) { 0 } // 0 ~ 6 (1 ~ 6)
+
+    for (i in 1..n) {
+        arr[i] = s.nextInt() // 5 2 6 1 3 8
+    }
+
+    fun swap(x: Int, y: Int) {
+        val temp1 = arr[x]
+        val temp2 = arr[y]
+        arr[y] = temp1
+        arr[x] = temp2
+    }
+
+    fun heapify(size: Int, i: Int) {
+        var maxIdx = i
+        val l = i * 2
+        val r = i * 2 + 1
+
+        if (l <= size && arr[l] >= arr[maxIdx]) {
+            maxIdx = l
+        }
+
+        if (r <= size && arr[r] >= arr[maxIdx]) {
+            maxIdx = r
+        }
+
+        if (maxIdx != i) {
+            swap(i, maxIdx)
+            heapify(size, maxIdx)
         }
     }
 
-    for (i in n / 2 downTo 1) {
-        heapify(n, i)
+    fun fullHepify(i: Int, size: Int) {
+        for (j in i downTo 1) {
+            heapify(size, j)
+        }
     }
 
-    for (i in n downTo 2) {
-        val temp = numbers[1]
-        numbers[1] = numbers[i]
-        numbers[i] = temp
-        heapify(i - 1, 1)
-    }
-    // heapify(n, n / 2)
+    fun heapSort(size: Int, i: Int) {
+        fullHepify(i, size)
 
-    write("${numbers.filterIndexed { index, _ -> index != 0 }.joinToString(" ")}")
-    close()
-}
-
-fun heapify(
-    size: Int,
-    mid: Int
-) {
-    var largest = mid
-    val child1 = largest * 2
-    val child2 = largest * 2 + 1
-
-    if (child1 <= size && numbers[child1] > numbers[largest]) {
-        largest = child1
+        for (j in size downTo 2) {
+            swap(1, j)
+            heapify(j -1, 1)
+        }
     }
 
-    if (child2 <= size && numbers[child2] > numbers[largest]) {
-        largest = child2
-    }
+    heapSort(n, n / 2)
 
-    if (mid != largest) {
-        val temp = numbers[mid]
-        numbers[mid] = numbers[largest]
-        numbers[largest] = temp
-        heapify(size, largest)
+    for(i in 1 .. n){
+        print("${arr[i]} ")
     }
 }
+
+
+    /*
+    n개의 원소가 주어졌을 때, 힙 정렬을 이용해 n개의 숫자를 오름차순으로 정렬하는 프로그램을 작성해보세요.
+    입력 형식
+    첫 번째 줄에는 n이 주어집니다.
+    두 번째 줄부터 n개의 원소값이 공백을 사이에 두고 주어집니다.
+    1 ≤ n ≤ 100,000
+    1 ≤ 원소 값 ≤ 100,000
+    
+    출력 형식
+    첫 번째 줄에 오름차순으로 정렬된 이후의 원소 값을 순서대로 공백을 사이에 두고 출력합니다.
+    
+    입출력 예제
+    예제1
+    
+    입력:
+    6
+    5 2 6 1 3 8
+    
+    출력:
+    1 2 3 5 6 8
+    
+    
+    
+    
+    
+    
+     */
