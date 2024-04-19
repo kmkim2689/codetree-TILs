@@ -36,13 +36,17 @@ public class Main {
                 case 'P':
                     char[] x = sc.next().toCharArray();
                     iter.add(x[0]);
-                    iter.next();
+                    // iter.next();
                             // System.out.println(ll);
 
                     break;
 
                 case 'D':
-                    iter.remove();
+                    if(iter.hasNext()){
+                        iter.next();
+                        iter.remove();
+                    }
+                    
                     // System.out.println(ll);
 
                     break;
