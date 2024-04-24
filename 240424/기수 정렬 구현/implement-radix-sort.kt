@@ -6,7 +6,7 @@ fun main() {
     var arr = IntArray(n) { sc.nextInt() }
 
     // 최대값 찾기
-    val maxNum = arr.maxOrNull() ?: 0
+    val maxNum = arr.max()
     // 최대 자리수 계산
     val maxDigit = maxNum.toString().length
 
