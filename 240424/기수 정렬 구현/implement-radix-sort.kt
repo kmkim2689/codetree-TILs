@@ -17,7 +17,7 @@ fun main() {
         for(item in arr){
             var nowDigit = item / x
             while(nowDigit >= 10){
-                nowDigit = nowDigit / 10
+                nowDigit = nowDigit % 10
             }
 
             newList[nowDigit].add(item)
