@@ -8,18 +8,14 @@ fun main() {
     val maxNum = arr.max()
     val maxDigit = maxNum.toString().length - 1 // 3 자리 수 이면 2
 
-    for(digit in 6 downTo 0) { // digit: 자리수
+    for(digit in 0 .. 6) { // digit: 자리수
         // 나누는 수
-        var x = 1
+        var x = 10
         // 새로 값을 저장할 리스트
         val newList = List(10) { mutableListOf<Int>() }
 
         for(item in arr){
-            var nowDigit = item / x
-            while(nowDigit >= 10){
-                nowDigit = nowDigit % 10
-            }
-
+            var nowDigit = ((item % x).toString().first() - '0').toInt()
             newList[nowDigit].add(item)
         }
 
@@ -38,3 +34,9 @@ fun main() {
     }
 
 }
+
+
+/*
+6
+5 2 6 1 3 8
+*/
