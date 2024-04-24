@@ -15,7 +15,11 @@ fun main() {
         val newList = List(10) { mutableListOf<Int>() }
 
         for(item in arr){
-            val nowDigit = item / x
+            var nowDigit = item / x
+            while(nowDigit >= 10){
+                nowDigit -= 10
+            }
+
             newList[nowDigit].add(item)
         }
 
