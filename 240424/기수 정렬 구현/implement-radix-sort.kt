@@ -8,7 +8,7 @@ fun main() {
     val maxNum = arr.max()
     val maxDigit = maxNum.toString().length - 1 // 3 자리 수 이면 2
 
-    for(digit in maxDigit downTo 0) { // digit: 자리수
+    for(digit in 6 downTo 0) { // digit: 자리수
         // 나누는 수
         var x = 1
         // 새로 값을 저장할 리스트
