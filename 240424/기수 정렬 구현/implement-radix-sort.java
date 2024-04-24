@@ -22,7 +22,7 @@ public class Main {
 
             for(int item: arr){
                 int idx = (item / exp) % 10;
-                bucket[idx].append(item);
+                bucket[idx].add(item);
             }
 
             int idx = 0;
