@@ -10,7 +10,7 @@ public class Main {
         }
 
         int maxNum = Arrays.stream(arr).max().getAsInt();
-        int maxDigit = maxNum.toString().length(); // 4323 -> 4
+        int maxDigit = Integer.toString(maxNum).length();
 
         int exp = 1;
 
