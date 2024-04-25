@@ -1,20 +1,22 @@
 import java.util.*;
 
 public class Main {
+    static Scanner sc = new Scanner(System.in);
+    static int n = sc.nextInt();
+    static int[] arr = new int[n];
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] arr = new int[n];
         for (int i =0; i <n; i++){
             arr[i] = sc.nextInt();
         }
-
         mergeSort(0, n-1);
 
-
+        for(int item: arr) {
+            System.out.print(item + " " );
+        }
     }
 
-    void mergeSort(int lowIdx, int largeIdx) {
+    static void mergeSort(int lowIdx, int largeIdx) {
         if(lowIdx < largeIdx) {
             int midIdx = (lowIdx + largeIdx) / 2;
             mergeSort(lowIdx, midIdx);
@@ -23,8 +25,8 @@ public class Main {
         }
     }
 
-    void merge(int lowIdx, int midIdx, int largeIdx) {
-        ArrayList<Int> newList = new ArrayList();
+    static void merge(int lowIdx, int midIdx, int largeIdx) {
+        ArrayList<Integer> newList = new ArrayList();
         int l = lowIdx;
         int r = midIdx + 1;
         while(l <= midIdx && r <= largeIdx) {
@@ -46,7 +48,7 @@ public class Main {
         int pos = lowIdx;
 
         for(int item: newList) {
-            arr[pos] = item;
+            arr[pos++] = item;
         }
     }
 }
