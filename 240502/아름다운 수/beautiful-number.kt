@@ -10,7 +10,9 @@ fun main() {
 
 fun backtracking(currSize: Int, maxSize: Int) {
     if (currSize == maxSize + 1) {
-        if (isBeautiful()) count++
+        if (isBeautiful()) {
+            count++
+        }
         return
     }
 
@@ -28,7 +30,7 @@ fun isBeautiful(): Boolean {
     newNumbers.removeAt(0)
     newNumbers.forEach { number ->
         if (number != currNumber) {
-            if (currNumber % currCount != 0) {
+            if (currCount % currNumber != 0) {
                 return false
             }
             currNumber = number
