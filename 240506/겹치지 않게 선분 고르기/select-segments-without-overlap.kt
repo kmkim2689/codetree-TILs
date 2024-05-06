@@ -23,28 +23,22 @@ private fun backtracking(currSize: Int, maxSize: Int) {
     }
 
     ranges.forEach {
-        if (it !in curr) {
+        if (currSize == 1) {
             curr.add(it)
-            if (curr.size >= maxCount) {
+            backtracking(currSize + 1, maxSize)
+            curr.removeAt(curr.size - 1)
+        } else {
+            if (curr.last().end < it.start) {
+                curr.add(it)
                 backtracking(currSize + 1, maxSize)
                 curr.removeAt(curr.size - 1)
-            }   
+            }
         }
     }
 }
 
 private fun determine() {
-    var isAvailable = true
-    loop@for (i in 0 until curr.size - 1) {
-        for (j in i + 1 until curr.size) {
-            if (curr[i].end >= curr[j].start) {
-                isAvailable = false
-                break@loop
-            }
-        }
-    }
-
-    if (isAvailable && curr.size > maxCount) {
+    if (curr.size > maxCount) {
         maxCount = curr.size
     }
 }
