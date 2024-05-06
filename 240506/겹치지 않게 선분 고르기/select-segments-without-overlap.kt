@@ -34,8 +34,8 @@ private fun determine() {
     var isAvailable = true
     val sortedRanges = curr.sortedBy { it.start }
     loop@for (i in 0 until sortedRanges.size - 1) {
-        for (j in i until sortedRanges.size) {
-            if (sortedRanges[i].end <= sortedRanges[j].start) {
+        for (j in i + 1 until sortedRanges.size) {
+            if (sortedRanges[i].end >= sortedRanges[j].start) {
                 isAvailable = false
                 break@loop
             }
