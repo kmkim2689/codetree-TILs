@@ -25,7 +25,7 @@ private fun backtracking(currSize: Int, maxSize: Int) {
     ranges.forEach {
         if (it !in curr) {
             curr.add(it)
-            if (curr.size > maxCount) {
+            if (curr.size >= maxCount) {
                 backtracking(currSize + 1, maxSize)
                 curr.removeAt(curr.size - 1)
             }   
