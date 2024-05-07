@@ -1,10 +1,19 @@
 import java.util.*;
 
-fun main() {
-    val sc = Scanner(System.`in`)
-    val str = sc.next()
-    val stack = Stack<Char>()
+val sc = Scanner(System.`in`)
+val stack = Stack<Char>()
 
+fun main() {
+    val str = sc.next()
+
+    if (validBrace(str)) {
+        println("Yes")
+    } else {
+        println("No")
+    }
+}
+
+fun validBrace(str: String): Boolean {
     for(item in str) {
         when (item) {
             '(' -> {
@@ -12,20 +21,14 @@ fun main() {
             }
             ')' -> {
                 if(stack.isEmpty()) {
-                    println("No")
-                    return
+                    return false
                 }
-
                 stack.pop()
             }
         }
     }
-
     if(!stack.isEmpty()) { 
-        println("No")
-        return
+        return false
     }
-
-    println("Yes")
-    return 
+    return true
 }
