@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,10 +29,10 @@ public class Main {
                     }else {
                         System.out.println(0);
                     }
-                
+                    break;
                 case "top" :
                     System.out.println(stack.peek());
-                
+                    break;
             }
         }
     }
