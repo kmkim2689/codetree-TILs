@@ -2,7 +2,7 @@ private val alphabets: MutableList<Char> = mutableListOf()
 private val operators = mutableListOf<Char>() 
 private val bw = System.out.bufferedWriter()
 private val numbers = mutableListOf<Int>()
-private var maxValue = 0
+private var maxValue = Int.MIN_VALUE
 
 fun main() {
     val br = System.`in`.bufferedReader()
