@@ -2,12 +2,12 @@ private val alphabets: MutableList<Char> = mutableListOf()
 private val operators = mutableListOf<Char>() 
 private val bw = System.out.bufferedWriter()
 private val numbers = mutableListOf<Int>()
-private var maxValue = Int.MIN_VALUE
+private var maxValue = Int.MIN_VALUE // 최댓값은 항상 될 수 없는 값으로 설정
 
 fun main() {
     val br = System.`in`.bufferedReader()
     val input = br.readLine().trim()
-    if (input.length == 1) {
+    if (input.length == 1) { // 문제 조건 잘 읽기
         maxValue = 4
     } else {
         input.forEach {
