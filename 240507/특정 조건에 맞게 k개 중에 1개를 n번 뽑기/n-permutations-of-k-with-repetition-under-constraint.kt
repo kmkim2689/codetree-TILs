@@ -19,8 +19,10 @@ fun backtracking(currSize: Int, maxNumber: Int, maxSize: Int) {
     }
 
     for (i in 1..maxNumber) {
-        curr.add(i)
-        backtracking(currSize + 1, maxNumber, maxSize)
-        curr.removeAt(curr.size - 1)
+        if (curr.size <= maxSize && curr.count { it == i } < 2) {
+            curr.add(i)
+            backtracking(currSize + 1, maxNumber, maxSize)
+            curr.removeAt(curr.size - 1)
+        }
     }
 }
