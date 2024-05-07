@@ -6,7 +6,11 @@ private var maxValue = 0
 
 fun main() {
     val br = System.`in`.bufferedReader()
-    br.readLine().trim().forEach {
+    val input = br.readLine().trim()
+    if (input.length == 1) {
+        maxValue = 4
+    } else {
+        input.forEach {
         when (it) {
             '-', '+', '*' -> operators.add(it)
             else -> alphabets.add(it)
@@ -14,6 +18,8 @@ fun main() {
     }
     val maxSize = alphabets.distinct().size
     backtracking(1, maxSize)
+    }
+    
     bw.write(maxValue.toString())
     bw.close()
 }
