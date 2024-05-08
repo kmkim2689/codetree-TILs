@@ -15,8 +15,9 @@ fun backtracking(
 ) {
     if (currSize == maxSize + 1) {
         curr.forEach {
-            bw.write("$it\n")
+            bw.write("$it ")
         }
+        bw.write("\n")
         return
     }
 
