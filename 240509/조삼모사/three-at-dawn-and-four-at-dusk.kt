@@ -35,19 +35,17 @@ fun backtracking(currSize: Int, maxSize: Int) {
 fun compute(maxSize: Int) {
     var count1 = 0
     var count2 = 0
-    for (i in 0 until maxSize / 2) {
-        for (j in 0 until maxSize / 2) {
-            if (i != j) {
-                count1 += grid[tasks[i] - 1][tasks[j] - 1]
-            }
+    for (i in 0 until maxSize / 2 - 1) {
+        for (j in i until maxSize / 2) {
+            count1 += grid[tasks[i] - 1][tasks[j] - 1]
+            count1 += grid[tasks[j] - 1][tasks[i] - 1]
         }
     }
 
-    for (i in maxSize / 2 until maxSize) {
-        for (j in maxSize / 2 until maxSize) {
-            if (i != j) {
-                count2 += grid[tasks[i] - 1][tasks[j] - 1]
-            }
+    for (i in maxSize / 2 until maxSize - 1) {
+        for (j in i until maxSize) {
+            count2 += grid[tasks[i] - 1][tasks[j] - 1]
+            count2 += grid[tasks[j] - 1][tasks[i] - 1]
         }
     }
 
