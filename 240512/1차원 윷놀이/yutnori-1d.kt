@@ -15,7 +15,7 @@ fun main() {
 
 fun backtracking(currSize: Int, maxSize: Int, numSize: Int, target: Int) {
     if (currSize == maxSize + 1) {
-        val scores = MutableList(maxSize) { 0 }
+        val scores = MutableList(maxSize) { 1 }
         indexes.zip(numbers) { index, number ->
             scores[index] += number
         }
