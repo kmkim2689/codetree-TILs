@@ -20,7 +20,7 @@ public class Main {
         if(arr[i-2] == -1) {
             arr[i-2] = pibo(i-2);
         }
-        if(arr[i-1] == pibo(i-1)){
+        if(arr[i-1] == -1){
             arr[i-1] = pibo(i-1);
         }
 
