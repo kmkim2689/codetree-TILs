@@ -10,8 +10,8 @@ fun main() {
     answer[2] = 2
     answer[3] = 3
     for (i in 4..n) {
-        answer[i] = answer[i - 1] + answer[i - 2]
+        answer[i] = (answer[i - 1] + answer[i - 2]) % 10007
     }
-    bw.write((answer[n] % 10007).toString())
+    bw.write(answer[n].toString())
     bw.close()
 }
