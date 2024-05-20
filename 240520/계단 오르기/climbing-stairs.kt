@@ -3,6 +3,7 @@ import java.util.*
 val sc = Scanner(System.`in`)
 val n = sc.nextInt()
 val tabDp = IntArray(n + 1) { 0 }
+val 
 
 fun main() {
     if(n == 2 || n == 3) {
@@ -14,7 +15,7 @@ fun main() {
     tabDp[3] = 1
 
     for(i in 4 .. n) {
-        tabDp[i] = tabDp[i - 3] + tabDp[i - 2]
+        tabDp[i] = (tabDp[i - 3] + tabDp[i - 2]) % 10_007
     }
     println(tabDp[n])
 }
