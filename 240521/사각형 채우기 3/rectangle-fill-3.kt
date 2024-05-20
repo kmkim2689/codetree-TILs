@@ -24,7 +24,7 @@ fun main() {
     tab[2] = 7
     for (i in 3 .. n) {
         tab[i] = ((2 * tab[i-1] + 3 * tab[i-2])) % MOD
-        for(j in 3 downTo i){
+        for(j in 3 .. i step -1){
             tab[i] += (2 * tab[i-j]) % MOD
         }
     }
