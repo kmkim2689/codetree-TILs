@@ -2,7 +2,7 @@ import java.util.*
 
 val sc = Scanner(System.`in`)
 val n = sc.nextInt()
-val tab = IntArray(n + 1) { 0 }
+val tab = LongArray(n + 1) { 0 }
 val MOD = 1_000_000_007
 fun main() {
     
