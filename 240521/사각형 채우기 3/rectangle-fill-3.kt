@@ -14,10 +14,10 @@ fun main() {
         println(7)
         return
     }
-    tab[1]= 2
+    tab[1] = 2
     tab[2] = 7
     for (i in 3 .. n) {
-        tab[i] = (3 * tab[i - 2] + 2 * tab[i - 1] + 2) % 1_000_000_007
+        tab[i] = ( (3 * tab[i - 2]) + (2 * tab[i - 1]) + 2) % 1_000_000_007
     }
     println(n)
 }
