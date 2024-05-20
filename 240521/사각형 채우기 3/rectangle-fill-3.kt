@@ -1,6 +1,6 @@
 import java.util.*
 
-val sc = Scanner(System.in)
+val sc = Scanner(System.`in``)
 val n = sc.nextInt()
 val tab = IntArray(n + 1) { 0 }
 
