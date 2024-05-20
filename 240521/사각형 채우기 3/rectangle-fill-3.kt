@@ -18,7 +18,7 @@ fun main() {
     tab[2] = 7
 
     for(i in 3 .. n) {
-        tab[i] = ( 2 + tab[i - 2] * 3 + tab[i-1] * 2 ) % 1_000_000_007
+        tab[i] = ( 2 + tab[i - 2] * i + tab[i-1] * (i-1) ) % 1_000_000_007
     }
     println(tab[n])
 }
