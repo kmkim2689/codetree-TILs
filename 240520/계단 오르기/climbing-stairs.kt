@@ -2,7 +2,7 @@ import java.util.*
 
 val sc = Scanner(System.`in`)
 val n = sc.nextInt()
-val tabDp = IntArray(n) { 0 }
+val tabDp = IntArray(n + 1) { 0 }
 
 fun main() {
     if(n == 2 || n == 3) {
