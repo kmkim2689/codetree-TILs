@@ -2,28 +2,19 @@ import java.util.*
 
 val sc = Scanner(System.`in`)
 val n = sc.nextInt()
-val tab = IntArray(n + 1) { 0 }
 
 fun main() {
     
-    if(n == 1) {
-        println(2)
-        return
-    }
-    if( n == 2) {
-        println(7)
-        return
+    // 동적 프로그래밍 테이블 초기화
+    val dp = LongArray(n + 1) { 0 }
+    dp[0] = 1
+    if (n >= 1) dp[1] = 2
+
+    // 점화식을 사용하여 dp 테이블 채우기
+    for (i in 2..n) {
+        dp[i] = (dp[i - 1] + 2 * dp[i - 2]) % 1_000_000_007
     }
 
-    if( n == 3) {
-        println(22)
-        return
-    }
-    tab[0] = 1
-    tab[1] = 2
-    tab[2] = 7
-    for (i in 3 .. n) {
-        tab[i] = ( (2 * tab[i-3]) + (3 * tab[i - 2]) + (2 * tab[i - 1]) ) % 1_000_000_007
-    }
-    println(tab[n])
+    // 결과 출력
+    println(dp[n])
 }
