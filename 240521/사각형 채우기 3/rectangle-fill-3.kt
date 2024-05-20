@@ -19,12 +19,11 @@ fun main() {
         println(22)
         return
     }
-
+    tab[0] = 1
     tab[1] = 2
     tab[2] = 7
-    tab[3] = 22
     for (i in 4 .. n) {
-        tab[i] = ( (2 * tab[i-3]) + (3 * tab[i - 2]) + (2 * tab[i - 1]) + 2) % 1_000_000_007
+        tab[i] = ((2 * tab[i-3]) + (3 * tab[i - 2]) + (2 * tab[i - 1]) + 2) % 1_000_000_007
     }
     println(tab[n])
 }
