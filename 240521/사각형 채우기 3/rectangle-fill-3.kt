@@ -18,13 +18,13 @@ fun main() {
     tab[0] = 1
     tab[1] = 2
     tab[2] = 7
-    for (i in 3 .. n) {
-        tab[i] = ((2 * tab[i-1] + 3 * tab[i-2])) % MOD
-        val k = i-3
-        for(j in k downTo 0){
-            tab[i] = (tab[i] + (2 * tab[j])) % MOD
+    for (i in 3..n) {
+        tab[i] = (2 * tab[i - 1] + 3 * tab[i - 2]) % MOD
+        for (k in 3..i) {
+            tab[i] = (tab[i] + 2 * tab[i - k]) % MOD
         }
     }
+
 
     println(tab[n])
 }
