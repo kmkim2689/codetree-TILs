@@ -20,8 +20,9 @@ fun main() {
     tab[2] = 7
     for (i in 3 .. n) {
         tab[i] = ((2 * tab[i-1] + 3 * tab[i-2])) % MOD
-        for(j in 3 .. i){
-            tab[i] = (tab[i] + (2 * tab[j-3])) % MOD
+        val k = i-3
+        for(j in k downTo 1){
+            tab[i] = (tab[i] + (2 * tab[j])) % MOD
         }
     }
 
