@@ -10,6 +10,8 @@ public class Main {
             System.out.println(1);
             return;
         }
+        tab[2] = 1;
+        tab[3] = 1;
 
         for(int i = 4; i <= n; i++) {
             tab[i] = (tab[i-3] + tab[i-2]) % 10007;
