@@ -6,7 +6,7 @@ var curr = mutableListOf<Int>()
 fun main() {
     val br = System.`in`.bufferedReader()
     val (n, m) = br.readLine().trim().split(" ").map(String::toInt)
-    numbers = br.readLine().trim().split(" ").map(String::toInt)
+    numbers = br.readLine().trim().split(" ").map(String::toInt).sorted()
     backtracking(1, m)
     bw.write(maxValue.toString())
     bw.close()
@@ -22,7 +22,7 @@ fun backtracking(currSize: Int, maxSize: Int) {
     }
 
     numbers.forEach {
-        if (it !in curr) {
+        if (it !in curr && it > curr.lastOrNull() ?: 0) {
             curr.add(it)
             backtracking(currSize + 1, maxSize)
             curr.removeAt(curr.size - 1)
