@@ -22,7 +22,7 @@ fun backtracking(currSize: Int, maxSize: Int) {
     }
 
     numbers.forEach {
-        if (it !in curr && it > curr.lastOrNull() ?: 0) {
+        if (it !in curr && it > curr.lastOrNull() ?: -1) {
             curr.add(it)
             backtracking(currSize + 1, maxSize)
             curr.removeAt(curr.size - 1)
