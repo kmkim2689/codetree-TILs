@@ -1,5 +1,5 @@
 val bw = System.out.bufferedWriter()
-var maxValue = Int.MIN_VALUE
+var maxValue = 0
 lateinit var numbers: List<Int>
 var curr = mutableListOf<Int>()
 
