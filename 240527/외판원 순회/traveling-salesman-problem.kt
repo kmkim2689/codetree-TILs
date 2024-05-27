@@ -20,7 +20,9 @@ fun backtracking(curr: Int, max: Int) {
         var row = 0
         currNumbers.forEachIndexed { i, number ->
             if (i != 0) {
-                currValue += grid[row][currNumbers[i]]
+                val positionValue = grid[row][currNumbers[i]]
+                if (positionValue == 0) return
+                currValue += positionValue
                 row = currNumbers[i]
             }
         }
