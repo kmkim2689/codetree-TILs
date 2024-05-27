@@ -26,7 +26,9 @@ fun backtracking(curr: Int, max: Int) {
                 row = currNumbers[i]
             }
         }
-        currValue += grid[row][0]
+        val positionValue = grid[row][0]
+        if (positionValue == 0) return
+        currValue += positionValue
         if (currValue < minValue) minValue = currValue
         return
     }
