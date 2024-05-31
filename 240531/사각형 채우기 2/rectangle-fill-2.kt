@@ -14,7 +14,7 @@ fun main() {
         return
     }
 
-    val dp = IntArray(n) { 0 }
+    val dp = IntArray(n + 1) { 0 }
 
     dp[1] = 1
     dp[2] = 3
