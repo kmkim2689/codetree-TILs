@@ -20,7 +20,7 @@ fun main() {
     dp[2] = 3
 
     for(i in 3 .. n) {
-        dp[i] = dp[i-1] * 2 + dp[i-2]
+        dp[i] = (dp[i-1] * 2 + dp[i-2]) % MOD
     }
 
     println(dp[n])
