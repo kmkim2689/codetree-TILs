@@ -19,10 +19,10 @@ public class Main {
             int maxDp = 0;
             for(int j = 1; j < i; j++) {
                 if(seq[i] < seq[j]) {
-                    maxDp = Math.max(maxDp, dp[j] + 1);
+                    maxDp = Math.max(maxDp, dp[j]);
                 }
             }
-            dp[i] = maxDp;
+            dp[i] = maxDp + 1;
         }
 
         int result = 1;
