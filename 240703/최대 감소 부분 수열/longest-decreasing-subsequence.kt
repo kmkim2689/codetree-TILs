@@ -1,30 +1,25 @@
 import java.util.*
 import kotlin.math.*
 
-val sc = Scanner(System.`in`)
-val n = sc.nextInt()
-val seq = IntArray(n+1) { 0 }
-val dp = IntArray(n+1) { 0 }
+fun main() {
+    val sc = Scanner(System.`in`)
+    val n = sc.nextInt()
+    val seq = IntArray(n)
+    val dp = IntArray(n) { 1 } // 모든 dp 요소를 1로 초기화
 
-fun main(){
-
-    for(i in  1 .. n) {
+    for (i in 0 until n) {
         seq[i] = sc.nextInt()
     }
-    
-    dp[1] = 1
-    for(i in 2 .. n) {
-        var maxDp = 0
-        for(j in i downTo 1){
-            if(seq[i] < seq[j]) {
-                maxDp = max(maxDp, dp[j])
+
+    for (i in 1 until n) {
+        for (j in 0 until i) {
+            if (seq[i] < seq[j]) {
+                dp[i] = max(dp[i], dp[j] + 1)
             }
         }
-        dp[i] = maxDp + 1
     }
-    var result = 1
-    for(i in 1 .. n) {
-        result = max(result, dp[i])
-    }
+
+    val result = dp.maxOrNull() ?: 1 // dp 배열의 최댓값이 결과
+
     println(result)
 }
