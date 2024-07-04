@@ -3,42 +3,31 @@ import java.util.*
 val sc = Scanner(System.`in`)
 val n = sc.nextInt()
 val seq = IntArray(n) { sc.nextInt() }
+val dp = IntArray(n) { 0 }
 
 fun main() {
-    var res = 0
-    var idx = 0
+    dp[0] = 0
 
-    while(idx in (0..n-1)){
-        idx++
-        if(idx >=n ) {
+    for(i in 0 .. n-1) {
+        if(kk(i) == -1) {
             break
         }
-
-        if(seq[idx] != 0) {
-            res++
-            continue
-        }
     }
+
+    val res = Arrays.stream(dp).max().orElse(0)
     println(res)
+
 }
 
+fun kk(i: Int): Int{
+    for(j in i + 1 .. i + seq[i]){
+        if(dp[j-1] != 0 && dp[j] == 0) {
+            return -1
+        }
 
-
-/*
-
-
-res: 0 에서 시작
-seq: n 개의 수들 배열: 0~n-1
-
-from 0
-if next is 0 -> next++
-
-while next is not 0
-    next++
-
-check next is in seq
-
-
-
-
-*/
+        if(j in 0..n-1){
+            dp[j] = dp[i] + 1
+        }
+    }
+    return 0
+}
