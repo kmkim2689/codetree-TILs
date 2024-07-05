@@ -12,6 +12,8 @@ fun main() {
     
     for(i in 1 .. n-1) {
         for(j in 0 .. i-1){
+            if(dp[j] == -1) continue
+
             if(j + seq[j] >= i) {
                 dp[i] = max(dp[i], dp[j] + 1)
             }
