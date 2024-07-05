@@ -21,6 +21,11 @@ fun main() {
             }
         }
     }
+    
+    var ans = dp[m]
+    if(ans == Int.MAX_VALUE) {
+        ans = -1
+    }
 
     println(dp[m])
 }
