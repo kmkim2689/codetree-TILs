@@ -27,5 +27,5 @@ fun main() {
         ans = -1
     }
 
-    println(dp[m])
+    println(ans)
 }
