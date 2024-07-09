@@ -19,11 +19,11 @@ fun main(){
     dp[0][0] = 1
 
     for(i in 0 .. n-1) {
-        for(j in 0 .. n-1) {
+        for(j in 0 .. m-1) {
             if(dp[i][j] == Int.MIN_VALUE) continue
 
             for(newI in i+1 .. n-1) {
-                for(newJ in j+1 .. n-1) {
+                for(newJ in j+1 .. m-1) {
                     if(arr[newI][newJ] > arr[i][j]) {
                         dp[newI][newJ] = max(dp[newI][newJ], dp[i][j] + 1)
                     }
@@ -35,7 +35,10 @@ fun main(){
     for(i in 0 .. n-1) {
         for(j in 0 .. m-1) {
             ans = max(ans, dp[i][j])
+            print(dp[i][j])
+            print("    ")
         }
+        println()
     }
 
     println(ans)
