@@ -21,6 +21,10 @@ val lines = Array<Points>(n) {
 val dp = IntArray(1_000) { 1 }
 
 fun main() {
+
+    lines.sort()
+
+
     for(i in 0 .. n-1) {
         for(j in 0 .. i-1) {
             var startOfNow = lines[i].x1
