@@ -35,10 +35,7 @@ fun main(){
     for(i in 0 .. n-1) {
         for(j in 0 .. m-1) {
             ans = max(ans, dp[i][j])
-            print(dp[i][j])
-            print("    ")
         }
-        println()
     }
 
     println(ans)
