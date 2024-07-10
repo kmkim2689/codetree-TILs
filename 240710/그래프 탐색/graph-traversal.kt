@@ -7,34 +7,35 @@ val M = sc.nextInt() // edge
 
 var ans = 0
 
-val matrix = Array(N) {
-    IntArray(N) { 0 }
+val graph = List(N) {
+    mutableListOf<Int>()
 }
+
 val visited = BooleanArray(N) { false }
 
 fun dfs(nowNode: Int) {
-    for(adj in 0 .. N-1) {
-        if(matrix[nowNode][adj] == 1 && !visited[adj]) {
+    
+    for(adj in graph[nowNode]) {
+        if(!visited[adj]){
             ans++
             visited[adj] = true
             dfs(adj)
         }
     }
-
 }
 
 fun main() {
-    // init matrix
-    for(i in 0 .. M-1) {
+    // init graph
+    for(i in 1 .. M) {
         val row = sc.nextInt() - 1
         val col = sc.nextInt() - 1
 
-        matrix[row][col] = 1
-        matrix[col][row] = 1
+        graph[row].add(col)
+        graph[col].add(row)
     }
 
     visited[0] = true
     dfs(0)
 
-   println(ans)
+    println(ans)
 }
