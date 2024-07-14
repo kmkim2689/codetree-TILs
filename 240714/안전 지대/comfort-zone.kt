@@ -73,7 +73,7 @@ fun main() {
         ansNum.add(Result(k, count))
     }
 
-    var answer: Result = Result(0, 0)
+    var answer: Result = Result(1, 0)
 
     for(item in ansNum) {
         if(answer.KCount < item.KCount) {
