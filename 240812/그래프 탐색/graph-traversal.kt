@@ -5,14 +5,14 @@ private lateinit var visited: MutableList<Boolean>
 fun main() {
     val br = System.`in`.bufferedReader()
     val (n, m) = br.readLine().split(" ").map(String::toInt)
-    grid = MutableList(n + 1) { MutableList(n + 1) { 0 } }
+    grid = MutableList(n) { MutableList(n) { 0 } }
     visited = MutableList(n) { false }
     repeat(m) {
         val (x, y) = br.readLine().split(" ").map(String::toInt)
-        grid[x][y] = 1
-        grid[y][x] = 1
+        grid[x - 1][y - 1] = 1
+        grid[y - 1][x - 1] = 1
     }
-    dfs(1)
+    dfs(0)
 
     println(count - 1)
 }
@@ -20,7 +20,7 @@ fun main() {
 fun dfs(vertex: Int) {
     visited[vertex] = true
     count++
-    for (i in 1 until grid.size) {
+    for (i in 0 until grid.size) {
         if (grid[vertex][i] == 1 && !visited[i]) {
             dfs(i)
         }
