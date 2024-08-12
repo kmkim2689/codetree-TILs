@@ -4,8 +4,8 @@ private var possible: Boolean = false
 
 fun main() {
     val br = System.`in`.bufferedReader()
-    val (n, m) = br.readLine().split(" ").map(String::toInt)
-    grid = List(n) { br.readLine().split(" ").map(String::toInt) }
+    val (n, m) = br.readLine().trim().split(" ").map(String::toInt)
+    grid = List(n) { br.readLine().trim().split(" ").map(String::toInt) }
     visited = MutableList(n) { MutableList(m) { false } }
     dfs(0, 0)
     if (possible) println(1) else println(0)
