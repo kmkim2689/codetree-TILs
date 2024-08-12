@@ -20,7 +20,7 @@ fun main() {
 fun dfs(vertex: Int) {
     visited[vertex] = true
     count++
-    for (i in 0 until grid.size) {
+    for (i in 1 until grid.size) {
         if (grid[vertex][i] == 1 && !visited[i]) {
             dfs(i)
         }
