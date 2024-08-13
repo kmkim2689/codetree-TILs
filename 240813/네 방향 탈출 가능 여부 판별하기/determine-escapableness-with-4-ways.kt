@@ -13,15 +13,19 @@ fun main() {
     val (n, m) = br.readLine().trim().split(" ").map(String::toInt)
     grid = List(n) { br.readLine().trim().split(" ").map(String::toInt) }
     visited = List(n) { MutableList(m) { false } }
-    queue.add(Position(0, 0))
-    bfs(0, 0)
+    if (grid[n - 1][m - 1] == 0 || grid[0][0] == 0) {
+        possible = false
+    } else {
+        queue.add(Position(0, 0))
+        visited[0][0] = true
+        bfs()
+    }
     if (possible) println(1) else println(0)
 }
 
-private fun bfs(x: Int, y: Int) {
-    while (queue.isEmpty() == false) {
+private fun bfs() {
+    while (queue.isNotEmpty()) {
         val position = queue.poll()
-        visited[position.x][position.y] = true
         if (position.x == grid.size - 1 && position.y == grid.first().size - 1) {
             possible = true
             break
@@ -31,6 +35,8 @@ private fun bfs(x: Int, y: Int) {
             val ny = position.y + dy[i]
             if (available(nx, ny)) {
                 queue.add(Position(nx, ny))
+                // 여기서 true를 해주는 이유는 경로 후보로 추가되었을 때 각 후보들이 순회할 때 다른 후보를 방문하지 못하도록 하기 위함
+                visited[nx][ny] = true
             }
         }
     }
