@@ -23,13 +23,13 @@ fun main() {
     when (m) {
         2 -> {
             if (special) {
-                if (m > 29) result = "-1"
+                if (d > 29) result = "-1"
             } else {
-                if (m > 28) result = "-1"
+                if (d > 28) result = "-1"
             }
         }
         4, 6, 9, 11 -> {
-            if (m > 30) result = "-1"
+            if (d > 30) result = "-1"
         }
     }
 
